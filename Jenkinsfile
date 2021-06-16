@@ -10,7 +10,7 @@ pipeline {
 
    options {
         skipDefaultCheckout(true)
-    }
+   }
 
     stages {
         stage('Checkout') {
@@ -20,17 +20,17 @@ pipeline {
             }
         }
 
-    stage('Build') {
-        steps {
-    		kanikoExecute(
-        		script: this,
-       		 buildOptions: ["--no-push" ],
-        dockerfilePath: "Dockerfile",
-        containerImageNameAndTag: "test:0.0",
-        verbose: true
-    )
-    echo "end of build"
+        stage('Build') {
+            steps {
+                kanikoExecute(
+      	            script: this,
+                    buildOptions: ["--no-push" ],
+                    dockerfilePath: "Dockerfile",
+                    containerImageNameAndTag: "test:0.0",
+                    verbose: true
+                 )
+                 echo "end of build"
+            }
         }
-       }
-   }
+    }
 }
