@@ -22,9 +22,9 @@ pipeline {
 
     stage('Build') {
         steps {
-    kanikoExecute(
-        script: parameters.script,
-        buildOptions: ["--no-push" ],
+    		kanikoExecute(
+        		script: this,
+       		 buildOptions: ["--no-push" ],
         dockerfilePath: "Dockerfile",
         containerImageNameAndTag: "test:0.0",
         verbose: true
