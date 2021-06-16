@@ -22,7 +22,14 @@ pipeline {
 
     stage('Build') {
         steps {
-            echo "end of build"
+    kanikoExecute(
+        script: parameters.script,
+        buildOptions: ["--no-push" ],
+        dockerfilePath: "Dockerfile",
+        containerImageNameAndTag: "test:0.0",
+        verbose: true
+    )
+    echo "end of build"
         }
        }
    }
