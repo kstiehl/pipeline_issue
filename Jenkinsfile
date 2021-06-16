@@ -15,16 +15,15 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                sh 'go version'
                 cleanWs()
                 checkout scm
             }
         }
 
-        stage('Build') {
-            steps {
-                echo "end of build"
-            }
+    stage('Build') {
+        steps {
+            echo "end of build"
         }
-    }
+       }
+   }
 }
