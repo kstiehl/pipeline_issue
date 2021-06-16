@@ -40,7 +40,7 @@ pipeline {
                     buildOptions: ["--no-push" ],
                     dockerfilePath: "multi-stage.Dockerfile",
                     containerImageNameAndTag: "test:0.0",
-                    dockerImage: "gcr.io/kaniko-project/executor:debug-v1.3.0-dedug"
+                    dockerImage: "gcr.io/kaniko-project/executor:debug-v1.3.0-dedug",
                     verbose: true
                  )
                  echo "end of build"
