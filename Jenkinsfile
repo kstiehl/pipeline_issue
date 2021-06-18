@@ -20,18 +20,18 @@ pipeline {
             }
         }
 
-        stage('Build-Single-Stage') {
-            steps {
-                kanikoExecute(
-      	            script: this,
-                    buildOptions: ["--no-push" ],
-                    dockerfilePath: "single-stage.Dockerfile",
-                    containerImageNameAndTag: "test:0.0",
-                    verbose: true
-                 )
-                 echo "end of build"
-            }
-        }
+//         stage('Build-Single-Stage') {
+//             steps {
+//                 kanikoExecute(
+//       	            script: this,
+//                     buildOptions: ["--no-push" ],
+//                     dockerfilePath: "single-stage.Dockerfile",
+//                     containerImageNameAndTag: "test:0.0",
+//                     verbose: true
+//                  )
+//                  echo "end of build"
+//             }
+//         }
 
         stage('Build-Multi-Stage') {
             steps {
