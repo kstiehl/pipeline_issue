@@ -47,6 +47,12 @@ pipeline {
                  writePipelineEnv(script: this, verbose: true)
                  sh "ls -al ./.pipeline/commonPipelineEnvironment/*"
                  sh "ls -al ./.pipeline/commonPipelineEnvironment/**/*"
+                 sh "chmod -R 777 ./.pipeline"
+                 sh "ls -al ./.pipeline/commonPipelineEnvironment/*"
+                 sh "ls -al ./.pipeline/commonPipelineEnvironment/**/*"
+                 stash name: "testStash", includes ./pipeline
+                 rm -rf ./pipeline/
+                 unstash name: "testStash"
             }
         }
 
