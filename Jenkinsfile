@@ -51,7 +51,7 @@ pipeline {
                  sh "ls -al ./.pipeline/commonPipelineEnvironment/*"
                  sh "ls -al ./.pipeline/commonPipelineEnvironment/**/*"
                  stash name: "testStash", includes ./pipeline
-                 sh "rm -rf ./pipeline/"
+                 sh "rm -rf ./.pipeline/"
                  unstash name: "testStash"
             }
         }
