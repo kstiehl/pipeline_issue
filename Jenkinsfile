@@ -43,16 +43,18 @@ pipeline {
                     dockerImage: "gcr.io/kaniko-project/executor:v1.3.0-debug",
                     verbose: true
                  )
-                 echo "end of build"
-                 writePipelineEnv(script: this, verbose: true)
-                 sh "ls -al ./.pipeline/commonPipelineEnvironment/*"
-                 sh "ls -al ./.pipeline/commonPipelineEnvironment/**/*"
-                 sh "chmod -R 777 ./.pipeline"
-                 sh "ls -al ./.pipeline/commonPipelineEnvironment/*"
-                 sh "ls -al ./.pipeline/commonPipelineEnvironment/**/*"
-                 stash name: "testStash", includes "./pipeline"
-                 sh "rm -rf ./.pipeline/"
-                 unstash name: "testStash"
+                script {
+                    echo "end of build"
+                    writePipelineEnv(script: this, verbose: true)
+                    sh "ls -al ./.pipeline/commonPipelineEnvironment/*"
+                    sh "ls -al ./.pipeline/commonPipelineEnvironment/**/*"
+                    sh "chmod -R 777 ./.pipeline"
+                    sh "ls -al ./.pipeline/commonPipelineEnvironment/*"
+                    sh "ls -al ./.pipeline/commonPipelineEnvironment/**/*"
+                    stash name: "testStash", includes "./pipeline"
+                    sh "rm -rf ./.pipeline/"
+                    unstash name: "testStash"
+                }
             }
         }
 
