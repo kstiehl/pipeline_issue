@@ -40,10 +40,11 @@ pipeline {
                     buildOptions: ["--no-push" ],
                     dockerfilePath: "multi-stage.Dockerfile",
                     containerImageNameAndTag: "test:0.0",
-                    dockerImage: "gcr.io/kaniko-project/executor:v1.4.0-debug",
+                    dockerImage: "gcr.io/kaniko-project/executor:v1.3.0-debug",
                     verbose: true
                  )
                  echo "end of build"
+                 sh "ls -al ./pipeline/commonPipelineEnvironment/**/*"
             }
         }
 
