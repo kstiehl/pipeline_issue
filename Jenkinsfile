@@ -44,7 +44,7 @@ pipeline {
                     verbose: true
                  )
                  echo "end of build"
-                 writePipelineEnv(script: this)
+                 writePipelineEnv(script: this, verbose: true)
                  sh "ls -al ./pipeline/commonPipelineEnvironment/**/*"
             }
         }
