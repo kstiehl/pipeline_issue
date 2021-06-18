@@ -45,7 +45,7 @@ pipeline {
                  )
                 script {
                     echo "end of build"
-                    sh "umask 000"
+                    sh "umask"
                     writePipelineEnv(script: this, verbose: true)
                     sh "ls -al ./.pipeline/commonPipelineEnvironment/*"
                     sh "ls -al ./.pipeline/commonPipelineEnvironment/**/*"
